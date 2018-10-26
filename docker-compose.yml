@@ -1,0 +1,68 @@
+version: '3'
+
+services:
+
+  tomcat:
+    container_name: tomcat
+    image: bitnami/tomcat:latest
+    restart: always
+    ports:
+      - 8080:8080
+      - 8443:8443
+    environment:
+      - TOMCAT_USERNAME=tomcat
+      - TOMCAT_PASSWORD=tomcat 
+    #volumes:
+     # - ./tomcat:/bitnami  
+      
+  jenkins:
+    container_name: jenkins
+    image: jenkins:latest
+    restart: always
+    ports:
+      - 8081:8080
+      #- 8443:8443
+      - 5000:5000    
+   
+  postgresql:
+    container_name: postgresql
+    image: sameersbn/postgresql:9.6-4
+    environment:
+      - DB_USER=redmine
+      - DB_PASS=redmine  
+      - DB_NAME=redmine_prod
+    #ports:
+      #- 5433:5432  
+   # volumes:
+   #   - ./redmine/postgresql:/var/lib/postgresql   
+      
+  redmine:       
+    container_name: redmine
+    image: sameersbn/redmine:3.4.6
+    depends_on:
+      - postgresql
+    environment:
+      - TZ=America/Sao_Paulo
+      
+      - DB_ADAPTER=postgresql 
+      - DB_HOST=postgresql
+      - DB_PORT=5432
+      - DB_USER=redmine 
+      - DB_PASS=redmine 
+      - DB_NAME=redmine
+      
+      - REDMENE_PORT=10083
+      - REDMENE_HTTPS=false
+      - REDMENE_RELATIVE_URL_ROOT=
+      - REDMENE_SECRECT_TOKEN=
+      
+      - REDMENE_SUDO_MODE_ENABLEDE=false
+      - REDMENE_SUDO_MODE_TIMEOUT=15
+       
+      - REDMENE_CONCURRENT_UPLOADS=2
+        
+    ports:
+      - 83:80
+    #volumes:
+     # - ./redmine/redmine:/home/redmine/data         
+  

@@ -1,0 +1,53 @@
+version: '3'
+services:
+
+  tomcat:
+    container_name: tomcat
+    image: bitnami/tomcat:latest
+    restart: always
+    ports:
+      - 8080:8080
+    environment:
+      - TOMCAT_USERNAME=tomcat
+      - TOMCAT_PASSWORD=tomcat 
+    volumes:
+      - ./tomcat:/bitnami  
+      
+  jenkins:
+    container_name: jenkins
+    image: jenkins:latest
+    restart: always
+    ports:
+      - 81:8080
+      - 5000:5000    
+   
+
+  redmine:
+    container_name: redmine
+    image: redmine
+    restart: always
+    ports:
+      - 82:3000
+    environment:
+      REDMINE_DB_MYSQL: db
+      REDMINE_DB_PASSWORD: root
+        
+
+  db:
+    container_name: mysql
+    image: mysql:5.7
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: redmine
+    
+  phpmyadmin:
+    container_name: phpmyadmin
+    image: phpmyadmin/phpmyadmin:latest
+    restart: always
+    ports:
+      - 83:80
+    environment:
+      - PMA_ARBITRARY=1
+        
+  

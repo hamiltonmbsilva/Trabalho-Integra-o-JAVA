@@ -1,0 +1,15 @@
+version: '3'
+services:
+
+  tomcat:
+    container_name: tomcat
+    image: 'bitnami/tomcat:latest'
+    restart: always
+    ports:
+      - 8080:8080
+    environment:
+      - TOMCAT_USERNAME=tomcat
+      - TOMCAT_PASSWORD=tomcat 
+    volumes:
+      - ./tomcat:/bitnami  
+  
