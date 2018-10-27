@@ -31,8 +31,8 @@ services:
       - DB_USER=redmine
       - DB_PASS=redmine  
       - DB_NAME=redmine_prod
-    #ports:
-      #- 5433:5432  
+    ports:
+      - 5433:5432  
    # volumes:
    #   - ./redmine/postgresql:/var/lib/postgresql   
       
@@ -64,5 +64,35 @@ services:
     ports:
       - 83:80
     #volumes:
-     # - ./redmine/redmine:/home/redmine/data         
+     # - ./redmine/redmine:/home/redmine/data  
+     
+  gitlab:
+    container_name: gitlab
+    image: gitlab/gitlab-ce:latest
+    #restart: always
+    ports:
+      - 8084:80
+      - 4433:443
+      - 222:22
+    environment:
+      - DEBUG:false
+      - DB_ADAPTER:postgresql
+      - DB_HOST:postgresql
+      - DB_PORT:5433
+      - DB_USER:gitlab
+      - DB_PASS:gitlab
+      - DB_NAME:gitlab
+    depends_on:
+      - postgres  
+      
+  postgres:
+    container_name: postgres
+    image: sameersbn/postgresql:10
+    restart: always
+    environment:      
+      - DB_PORT:5434
+      - DB_USER:gitlab
+      - DB_PASS:gitlab
+      - DB_NAME:gitlab    
+            
   
