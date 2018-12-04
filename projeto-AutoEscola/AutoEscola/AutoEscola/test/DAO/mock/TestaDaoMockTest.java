@@ -19,8 +19,11 @@ import static Models.Login_.login;
 import Models.Pagamento;
 import Models.Pessoa;
 import Models.Professor;
+import static com.sun.org.apache.xalan.internal.lib.ExsltDatetime.dateTime;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
+import org.eclipse.persistence.jpa.jpql.parser.DateTime;
 import static org.junit.Assert.assertEquals;
 import org.junit.Before;
 import org.junit.Test;
@@ -37,30 +40,44 @@ public class TestaDaoMockTest {
     List<AulaPratica> listaAulaPratica;
     
    
-//    @Before
-//    public void inicializarTeste(){
-//    
-//        listaAluno = new ArrayList<Aluno>();
-//        listaAulaPratica = new ArrayList<AulaPratica>();
-////        Aluno a1
-////        a1 = new Aluno(2,
-////                "Marcos Paulo Gamarano",
-////                "marcos_gamarano@gmail.com",
-////                "Rua Badi Geara",
-////                "Ipiranga",
-////                "897",
-////                "casa",
-////                "Ipiranga", 
-////                false,
-////                 Date (1999-01-13),
-////                "123456789");
-////        listaAluno.add(a1);
-//        
-//        
-////        aulaPratica = new AulaPratica(1,"Lesgislação");
-////        listaAulaPratica.add(AulaPratica);
-//        
-//    }
+    @Before
+    public void inicializarTeste(){    
+        listaAluno = new ArrayList<Aluno>();
+        
+        listaAulaPratica = new ArrayList<AulaPratica>();
+        
+        Aluno a1;
+        a1 = new Aluno(1,
+                "Marcos Paulo Gamarano",
+                "marcos_gamarano@gmail.com",
+                "Rua Badi Geara",
+                "Ipiranga",
+                "897",
+                "Ipiranga",
+                "Ipiranga", 
+                 true,
+                new Date(2018-05-05),
+                "123456789");
+        listaAluno.add(a1);
+        
+        Aluno a2;
+        a2 = new Aluno(2,
+                "Paulo Paulo Gamarano",
+                "marcos_gamarano@gmail.com",
+                "Rua Badi Geara",
+                "Ipiranga",
+                "895",
+                "Ipiranga",
+                "Ipiranga", 
+                 true,
+                new Date(2018-15-05),
+                "123456789");
+        listaAluno.add(a2);
+        
+        
+        
+        
+    }
     
     @Test
     public void testBuscarAluno() {
@@ -68,12 +85,10 @@ public class TestaDaoMockTest {
         AlunoDAO instance = Mockito.mock(AlunoDAO.class);
         
         List<Aluno> lista = new ArrayList<>();
-        //lista.add(new Aluno());
-       
+      
+        Mockito.when(instance.getAll()).thenReturn(listaAluno);
         
-        Mockito.when(instance.getAll()).thenReturn(lista);
-        
-        int expResult = 3;
+        int expResult = 2;
         List<Aluno> result = instance.getAll();
         
         assertEquals(expResult, result.size());
@@ -88,9 +103,9 @@ public class TestaDaoMockTest {
         //lista.add(new Aluno());
 //        lista.add(new Aluno());
         
-        Mockito.when(instance.getAllMatriculados()).thenReturn(lista);
+        Mockito.when(instance.getAllMatriculados()).thenReturn(listaAluno);
         
-        int expResult = 3;
+        int expResult = 2;
         List<Aluno> result = instance.getAllMatriculados();
         
         assertEquals(expResult, result.size());
