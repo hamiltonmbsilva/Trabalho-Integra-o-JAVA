@@ -7,9 +7,17 @@ package DAO.mock;
 
 import DAO.AlunoDAO;
 import DAO.AulaPraticaDAO;
+import DAO.AulaTeoricaDAO;
+import DAO.PagamentoDAO;
+import DAO.PessoaDAO;
+import DAO.ProfessorDAO;
 import Models.Aluno;
 import Models.AulaPratica;
+import Models.AulaTeorica;
+import Models.Login;
 import static Models.Login_.login;
+import Models.Pagamento;
+import Models.Pessoa;
 import Models.Professor;
 import java.util.ArrayList;
 import java.util.List;
@@ -29,30 +37,30 @@ public class TestaDaoMockTest {
     List<AulaPratica> listaAulaPratica;
     
    
-    @Before
-    public void inicializarTeste(){
-    
-        listaAluno = new ArrayList<Aluno>();
-        listaAulaPratica = new ArrayList<AulaPratica>();
-//        Aluno a1
-//        a1 = new Aluno(2,
-//                "Marcos Paulo Gamarano",
-//                "marcos_gamarano@gmail.com",
-//                "Rua Badi Geara",
-//                "Ipiranga",
-//                "897",
-//                "casa",
-//                "Ipiranga", 
-//                false,
-//                 Date (1999-01-13),
-//                "123456789");
-//        listaAluno.add(a1);
-        
-        
-//        aulaPratica = new AulaPratica(1,"Lesgislação");
-//        listaAulaPratica.add(AulaPratica);
-        
-    }
+//    @Before
+//    public void inicializarTeste(){
+//    
+//        listaAluno = new ArrayList<Aluno>();
+//        listaAulaPratica = new ArrayList<AulaPratica>();
+////        Aluno a1
+////        a1 = new Aluno(2,
+////                "Marcos Paulo Gamarano",
+////                "marcos_gamarano@gmail.com",
+////                "Rua Badi Geara",
+////                "Ipiranga",
+////                "897",
+////                "casa",
+////                "Ipiranga", 
+////                false,
+////                 Date (1999-01-13),
+////                "123456789");
+////        listaAluno.add(a1);
+//        
+//        
+////        aulaPratica = new AulaPratica(1,"Lesgislação");
+////        listaAulaPratica.add(AulaPratica);
+//        
+//    }
     
     @Test
     public void testBuscarAluno() {
@@ -60,7 +68,7 @@ public class TestaDaoMockTest {
         AlunoDAO instance = Mockito.mock(AlunoDAO.class);
         
         List<Aluno> lista = new ArrayList<>();
-        lista.add(new Aluno());
+        //lista.add(new Aluno());
        
         
         Mockito.when(instance.getAll()).thenReturn(lista);
@@ -77,7 +85,7 @@ public class TestaDaoMockTest {
         AlunoDAO instance = Mockito.mock(AlunoDAO.class);
         
         List<Aluno> lista = new ArrayList<>();
-        lista.add(new Aluno());
+        //lista.add(new Aluno());
 //        lista.add(new Aluno());
         
         Mockito.when(instance.getAllMatriculados()).thenReturn(lista);
@@ -88,18 +96,21 @@ public class TestaDaoMockTest {
         assertEquals(expResult, result.size());
     }
     
-    //    @Test
+//        @Test
 //    public void testBuscarSeEstaMatriculado() {
 //        
-//        AlunoDAO instance = Mockito.mock(AlunoDAO.class);
-//        
-//        List<Aluno> lista = new ArrayList<>();
-//        lista.add(new Aluno());
+//        Login login = new Login();
 //        Aluno aluno = new Aluno();
+//        
+//        AlunoDAO instance = Mockito.mock(AlunoDAO.class);
+////        
+////        List<Aluno> lista = new ArrayList<>();
+////        lista.add(new Aluno());
+//        Aluno aluno1 = new Aluno();
 //        aluno.getLoginId();
 ////        lista.add(new Aluno());
 //        
-//        Mockito.when(instance.BuscarPorLogin().thenReturn(aluno));
+//        Mockito.when(instance.BuscarPorLogin(login).thenReturn(aluno));
 //        
 //        int expResult = 1;
 //        List<Aluno> result = instance.getAllMatriculados();
@@ -183,6 +194,132 @@ public class TestaDaoMockTest {
         assertEquals(expResult, result.size());
     }
     
+    @Test
+    public void testBuscarTodasAulaTeorica() {
+        
+        Aluno aluno = new Aluno();
+    
+        
+        AulaTeoricaDAO instance = Mockito.mock(AulaTeoricaDAO.class);
+        
+        List<AulaTeorica> lista = new ArrayList<>();
+        lista.add(new AulaTeorica());
+//        lista.add(new Aluno());
+        
+        Mockito.when(instance.getAll()).thenReturn(lista);
+        
+        int expResult = 10;
+        List<AulaTeorica> result = instance.getAll();
+        
+        assertEquals(expResult, result.size());
+    }
+    
+    @Test
+    public void testBuscarAulaTeoricaPorProfessor() {
+        
+        Professor professor = new Professor();
+    
+        
+        AulaTeoricaDAO instance = Mockito.mock(AulaTeoricaDAO.class);
+        
+        List<AulaTeorica> lista = new ArrayList<>();
+        lista.add(new AulaTeorica());
+//        lista.add(new Aluno());
+        
+        Mockito.when(instance.getPorProfessor(professor)).thenReturn(lista);
+        
+        int expResult = 2;
+        List<AulaTeorica> result = instance.getPorProfessor(professor);
+        
+        assertEquals(expResult, result.size());
+    }
+    
+    @Test
+    public void testBuscarTodosPagamentos() {
+        
+        PagamentoDAO instance = Mockito.mock(PagamentoDAO.class);
+        
+        List<Pagamento> lista = new ArrayList<>();
+        lista.add(new Pagamento());
+//        lista.add(new Aluno());
+        
+        Mockito.when(instance.getAll()).thenReturn(lista);
+        
+        int expResult = 2;
+        List<Pagamento> result = instance.getAll();
+        
+        assertEquals(expResult, result.size());
+    }
+    
+    @Test
+    public void testBuscarPagamentosPorAluno() {
+        
+        Aluno aluno = new Aluno();
+        
+        Pagamento pagamento = new Pagamento();
+        
+        PagamentoDAO instance = Mockito.mock(PagamentoDAO.class);
+//        
+//        List<Pagamento> lista = new ArrayList<>();
+//        lista.add(new Pagamento());
+//        lista.add(new Aluno());
+        
+        Mockito.when(instance.getPorAluno(aluno)).thenReturn(pagamento);
+        
+        int expResult = 1;
+        List<Pagamento> result = instance.getAll();
+        
+        assertEquals(expResult, result.size());
+    }
+    
+    @Test
+    public void testBuscarPessoaPorLogin() {
+        
+        Login login = new Login();
+        Pessoa pessoa = new Pessoa();
+        
+        PessoaDAO instance = Mockito.mock(PessoaDAO.class);
+
+        Mockito.when(instance.BuscarPorLogin(login)).thenReturn(pessoa);
+        
+        int expResult = 1;
+        Pessoa result = instance.BuscarPorLogin(login);
+        
+        assertEquals(expResult, result);
+    }
+    
+     @Test
+    public void testBuscarProfessorPorLogin() {
+        
+        Login login = new Login();
+        Professor professor = new Professor();
+        
+         ProfessorDAO instance = Mockito.mock(ProfessorDAO.class);
+
+        Mockito.when(instance.BuscarPorLogin(login)).thenReturn(professor);
+        
+        int expResult = 1;
+        Professor result = instance.BuscarPorLogin(login);
+        
+        assertEquals(expResult, result);
+    }
+    
+    @Test
+    public void testBuscarTodosProfessores() {
+        
+        ProfessorDAO instance = Mockito.mock(ProfessorDAO.class);
+        
+        List<Professor> lista = new ArrayList<>();
+        lista.add(new Professor());
+//        lista.add(new Aluno());
+        
+        Mockito.when(instance.getAll()).thenReturn(lista);
+        
+        int expResult = 4;
+        List<Professor> result = instance.getAll();
+        
+        assertEquals(expResult, result.size());
+    }
 
     
 }
