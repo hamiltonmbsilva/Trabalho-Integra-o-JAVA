@@ -21,7 +21,7 @@ import javax.persistence.Persistence;
 public abstract class BaseDAO<T> {
     
     public EntityManager OpenConnection() {
-        EntityManagerFactory emf = Persistence.createEntityManagerFactory("autoescolaPU");
+        EntityManagerFactory emf = Persistence.createEntityManagerFactory("cfc");
         EntityManager em = emf.createEntityManager();
         return em;
     }

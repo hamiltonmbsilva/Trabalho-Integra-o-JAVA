@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataset>
+    
+    <tipo_pessoa id="1" nome="Administrador" />
+    <tipo_pessoa id="2" nome="Funcionário" />
+    <tipo_pessoa id="3" nome="Aluno" />
+    <tipo_pessoa id="4" nome="Professor" />
+    
+    <pessoa id="1" nome="Yuri" dt_nascimento="2010-09-09" cpf="123" sexo="1" ativa="1" tipo_pessoa_id="1" />
+    <pessoa id="2" nome="Jessica" dt_nascimento="2010-09-09" cpf="1234" sexo="0" ativa="0" tipo_pessoa_id="2" />
+    <pessoa id="3" nome="Hamilton" dt_nascimento="2010-09-09" cpf="12345" sexo="1" ativa="1" tipo_pessoa_id="3" />
+    <pessoa id="4" nome="Guilherme" dt_nascimento="2010-09-09" cpf="123456" sexo="1" ativa="0" tipo_pessoa_id="4" />
+    
+</dataset>
