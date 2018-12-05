@@ -112,11 +112,15 @@ public class PessoaDAO extends BaseDAO<Pessoa> {
             em = OpenConnection();
             Query query = em.createNamedQuery("Pessoa.findAll");
             return query.getResultList();
+        }catch (Exception ex){
+            String teste = ex.toString();
+            String teste2 = teste;
         }finally {
             if (em != null) {
                 em.close();
             }
         }
+        return null;
     }
     
     public List<Pessoa> getProfessores() {

@@ -1,14 +1,53 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version='1.0' encoding='UTF-8'?>
 <dataset>
-    
-    <tipo_pessoa id="1" nome="Administrador" />
-    <tipo_pessoa id="2" nome="Funcionário" />
-    <tipo_pessoa id="3" nome="Aluno" />
-    <tipo_pessoa id="4" nome="Professor" />
-    
-    <pessoa id="1" nome="Yuri" dt_nascimento="2010-09-09" cpf="123" sexo="1" ativa="1" tipo_pessoa_id="1" />
-    <pessoa id="2" nome="Jessica" dt_nascimento="2010-09-09" cpf="1234" sexo="0" ativa="0" tipo_pessoa_id="2" />
-    <pessoa id="3" nome="Hamilton" dt_nascimento="2010-09-09" cpf="12345" sexo="1" ativa="1" tipo_pessoa_id="3" />
-    <pessoa id="4" nome="Guilherme" dt_nascimento="2010-09-09" cpf="123456" sexo="1" ativa="0" tipo_pessoa_id="4" />
-    
+  <tipo_aula id="1" nome="Pr&#225;tica" carga_minima="100"/>
+  <tipo_aula id="2" nome="Teorica" carga_minima="150"/>
+  <tipo_veiculo id="1" descricao="Moto"/>
+  <tipo_veiculo id="2" descricao="Carro"/>
+  <veiculo id="1" ano="2018" placa="KAH2222" tipo_veiculo_id="1"/>
+  <veiculo id="2" ano="1990" placa="abc1235" tipo_veiculo_id="2"/>
+  <veiculo id="3" ano="2007" placa="DCJ9898" tipo_veiculo_id="2"/>
+  <aula id="1" data="2018-10-02" hora="12:00" tipo_aula_id="1" veiculo_id="2"/>
+  <aula id="2" data="2018-10-02" hora="12:00" tipo_aula_id="1" veiculo_id="2"/>
+  <tipo_pessoa id="1" nome="Administrador"/>
+  <tipo_pessoa id="2" nome="Funcion&#225;rio"/>
+  <tipo_pessoa id="3" nome="Aluno"/>
+  <tipo_pessoa id="4" nome="Professor"/>
+  <pessoa id="14" nome="tetet" dt_nascimento="2014-09-09" cpf="546464" sexo="1" ativa="1" tipo_pessoa_id="3"/>
+  <pessoa id="27" nome="Teste " dt_nascimento="2010-09-09" cpf="12312345678" sexo="1" ativa="1" tipo_pessoa_id="3"/>
+  <pessoa id="28" nome="Pessoa" dt_nascimento="2010-09-09" cpf="1864758575888" sexo="1" ativa="1" tipo_pessoa_id="2"/>
+  <pessoa id="29" nome="ddddd" dt_nascimento="2010-09-09" cpf="12312312312" sexo="0" ativa="1" tipo_pessoa_id="3"/>
+  <pessoa id="31" nome="gordinho" dt_nascimento="2010-09-09" cpf="12312312345" sexo="0" ativa="1" tipo_pessoa_id="4"/>
+  <pessoa id="35" nome="gordinho" dt_nascimento="2010-09-09" cpf="3435343" sexo="0" ativa="1" tipo_pessoa_id="3"/>
+  <pessoa id="36" nome="ddddd" dt_nascimento="2010-09-09" cpf="12121212122" sexo="0" ativa="1" tipo_pessoa_id="3"/>
+  <pessoa id="39" nome="ddddd" dt_nascimento="2010-09-09" cpf="12312312312" sexo="0" ativa="1" tipo_pessoa_id="3"/>
+  <pessoa id="45" nome="ddddd" dt_nascimento="2010-09-09" cpf="12312312312" sexo="0" ativa="1" tipo_pessoa_id="3"/>
+  <pessoa id="47" nome="jessica" dt_nascimento="1990-10-29" cpf="kfjfjjfjf" sexo="1" ativa="1" tipo_pessoa_id="3"/>
+  <pessoa id="48" nome="Contrato" dt_nascimento="1990-10-29" cpf="123112312345" sexo="1" ativa="1" tipo_pessoa_id="3"/>
+  <pessoa id="50" nome="J&#195;&#169;ssica Roza da Silva" dt_nascimento="2018-01-01" cpf="1231231234578" sexo="1" ativa="1" tipo_pessoa_id="3"/>
+  <agenda id="1" disponivel="0" aula_id="2" aluno_id="28" professor_id="31"/>
+  <agenda id="2" disponivel="0" aula_id="1" aluno_id="28" professor_id="31"/>
+  <plano_pagamento id="1" qdt_parcelas="1" valor_total="1000.0" nome="&#192; vista" vencimento="10"/>
+  <plano_pagamento id="2" qdt_parcelas="12" valor_total="1200.0" nome="12 x com juros" vencimento="15"/>
+  <contrato id="21" validade="2020-03-04" pessoa_id="47" plano_pagamento_id="2"/>
+  <contrato_has_tipo_aula/>
+  <matricula id="13" pre_matricula="1" psicotecnico="1" login="tete" senha="12345" email="teste@teste" pessoa_id="14"/>
+  <matricula id="14" pre_matricula="0" psicotecnico="0" login="teteyryrururuiu" senha="8578578587&apos;" email="tete@tete" pessoa_id="27"/>
+  <matricula id="15" pre_matricula="1" psicotecnico="1" login="ddd" senha="2344" email="tetet@gegdgd.com" pessoa_id="28"/>
+  <matricula id="16" pre_matricula="1" psicotecnico="1" login="fffff" senha="fbb,b," email="tetet@gegdgd.com" pessoa_id="45"/>
+  <matricula id="17" pre_matricula="1" psicotecnico="1" login="jessica" senha="123" email="ze@botafogosegundadivisao.com.br" pessoa_id="48"/>
+  <matricula id="18" pre_matricula="1" psicotecnico="1" login="jroza" senha="123" email="teste@teste" pessoa_id="50"/>
+  <recebimento id="4772" data="2018-10-04" contrato_id="21" valor="100.0" pago="0"/>
+  <recebimento id="4773" data="2018-10-04" contrato_id="21" valor="100.0" pago="0"/>
+  <recebimento id="4774" data="2018-10-04" contrato_id="21" valor="100.0" pago="0"/>
+  <recebimento id="4775" data="2018-10-04" contrato_id="21" valor="100.0" pago="0"/>
+  <recebimento id="4776" data="2018-10-04" contrato_id="21" valor="100.0" pago="0"/>
+  <recebimento id="4777" data="2018-10-04" contrato_id="21" valor="100.0" pago="0"/>
+  <recebimento id="4778" data="2018-10-04" contrato_id="21" valor="100.0" pago="0"/>
+  <recebimento id="4779" data="2018-10-04" contrato_id="21" valor="100.0" pago="0"/>
+  <recebimento id="4780" data="2018-10-04" contrato_id="21" valor="100.0" pago="0"/>
+  <recebimento id="4781" data="2018-10-04" contrato_id="21" valor="100.0" pago="0"/>
+  <recebimento id="4782" data="2018-10-04" contrato_id="21" valor="100.0" pago="0"/>
+  <recebimento id="4784" data="2018-10-04" contrato_id="21" valor="100.0" pago="1"/>
+  <recebimento id="4785" data="2018-10-08" contrato_id="21" valor="100.0" pago="1"/>
 </dataset>
