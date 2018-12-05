@@ -101,6 +101,11 @@ public class Pessoa implements Serializable {
         this.ativa = ativa;
         this.tipoPessoaId = tipoPessoaId;
     }
+    
+
+    public Pessoa(int i, String marcos_Paulo_Gamarano, String marcos_gamaranogmailcom, String rua_Badi_Geara, String ipiranga, String string, String ipiranga0, String ipiranga1, boolean b, Date date, String string0) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 
     public Integer getId() {
         return id;

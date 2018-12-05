@@ -73,10 +73,6 @@ public class TestaDaoMockTest {
                 new Date(2018-15-05),
                 "123456789");
         listaAluno.add(a2);
-        
-        
-        
-        
     }
     
     @Test
