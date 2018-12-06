@@ -81,6 +81,26 @@ public class Contrato implements Serializable {
         this.planoPagamentoId =  planoPagamentoId;
         this.pessoaId = pessoaId;
     }
+    
+    public Double ValorPrestacacao(Double parcelas, Double valor){
+    
+        Double v, p;
+        
+      if(valor < 0) 
+        v = valor * -1;
+      else
+          v = valor; 
+      
+      if(parcelas < 0)
+          p = parcelas * -1;
+      else if(parcelas == 0)
+          p = 1.0;
+      else
+          p = parcelas;
+      
+        
+       return  v/p ;
+    }
 
     public Integer getId() {
         return id;
